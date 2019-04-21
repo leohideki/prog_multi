@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let filme of let list of lista_filmes">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/marty-avatar.png">
+      </ion-avatar>
+      <h2 class="feed_title">{{filme.title}}</h2>
+      <p>{{filme.release_date | date:'d/M/y'}}</p>
+    </ion-item>
+    <img [src]="'https://image.tmdb.org/t/p/w300/' + filme.backdrop_path">
+    <ion-card-content>
+      <p>{{filme.overview}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='thumbs-up'></ion-icon>
+          {{filme.popularity | number: '3.2-2'}} Popularity
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='text'></ion-icon>
+          {{filme.vote_count}} Votes
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          {{filme.vote_average}} Avg
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
